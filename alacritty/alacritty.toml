@@ -1,5 +1,5 @@
 
-import = ["/Users/michaela/.config/alacritty/themes/themes/flat_remix.toml"]
+import = ["/Users/michaela/.config/alacritty/flat_remix.toml"]
 live_config_reload = true
 
 [env]
@@ -7,14 +7,13 @@ TERM = "xterm-256color"
 
 [window]
 dynamic_padding = true
-decorations = "None"
 blur = false
 opacity = 1.0
 dynamic_title = true
 
 [window.dimensions]
-columns = 150
-lines = 70
+columns = 70
+lines = 40
 
 [mouse]
 hide_when_typing = true

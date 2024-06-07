@@ -11,26 +11,31 @@ call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'dyng/ctrlsf.vim'
 Plug 'mhartington/oceanic-next'
-Plug 'fcpg/vim-fahrenheit'
-Plug 'adigitoleo/vim-mellow', { 'tag': '*' }
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'NoahTheDuke/vim-just'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'nightsense/carbonized'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mbbill/undotree'
+
+"Attempting LSP
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
+
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
 
 call plug#end()
- 
+
 " Theme
-syntax enable
 colorscheme OceanicNext
-" transparent bg
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-" For Vim<8, replace EndOfBuffer by NonText
-autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " NERDTREE config
 " Open the existing NERDTree on each new tab.
@@ -39,12 +44,5 @@ autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silen
 " NERDCommenter config
 let NERDSpaceDelims=1
  
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-map tn :tabnew
-
-map ff :Telescope find_files
-map fg :Telescope live_grep
-map fb :Telescope buffers
-map fh :Telescope help_tags
+lua require('init')
 
